@@ -153,14 +153,13 @@
     <div class="sp" id="sp1"></div>
     <div class="sp" id="sp2"></div>
     <div class="sp" id="sp3"></div>
-    <div class="sp" id="sp4"></div>
   </div>
 
   <!-- PAGE 1 -->
   <div class="page active" id="p1">
     <div class="step-label">
-      <h2>Step 1: Choose Your Top 20</h2>
-      <p>Tap ▼ to learn about a value, then check the box to select it. Pick 20 that feel most like you. Values are grouped into: <strong>Self &amp; Character · Relationships &amp; Community · Growth &amp; Learning · Purpose &amp; Impact · Well-being &amp; Faith · Expression</strong>.</p>
+      <h2>Step 1: Choose Your Top 10</h2>
+      <p>You've already narrowed to 20 from the handout. Now find your top 10. Tap ▼ to expand a value, then check the box to select it. Values are grouped into: <strong>Self &amp; Character · Relationships &amp; Community · Growth &amp; Learning · Purpose &amp; Impact · Well-being &amp; Faith · Expression</strong>.</p>
     </div>
     <div class="search-wrap">
       <input class="search-box" id="search1" type="search" placeholder="Search values…" autocomplete="off" oninput="update1()">
@@ -173,7 +172,7 @@
       <div class="custom-note">Don't see a value that matters to you? Add it above.</div>
     </div>
     <div class="pad">
-      <div class="badge">Selected: <em id="c1">0</em> / 20</div>
+      <div class="badge">Selected: <em id="c1">0</em> / 10</div>
       <div id="a1"></div>
       <div id="g1"></div>
     </div>
@@ -185,17 +184,17 @@
   <!-- PAGE 2 -->
   <div class="page" id="p2">
     <div class="step-label">
-      <h2>Step 2: Narrow to Your Top 10</h2>
-      <p>Which feel deepest? Which would you refuse to give up? Uncheck the ones that matter a little less right now.</p>
+      <h2>Step 2: Your True North — Top 5</h2>
+      <p>Almost there. From your 10, choose the 5 that feel most essentially <em>you</em>. These are your True North.</p>
     </div>
     <div class="pad">
-      <div class="badge">Selected: <em id="c2">0</em> / 10</div>
+      <div class="badge">Selected: <em id="c2">0</em> / 5</div>
       <div id="a2"></div>
       <div id="g2"></div>
     </div>
     <div class="btn-row">
       <button class="btn btn-o" onclick="go(1)">← Back</button>
-      <button class="btn btn-p" id="b2" onclick="go(3)" disabled>Narrow to 5 →</button>
+      <button class="btn btn-p" id="b2" onclick="go(3)" disabled>See My Compass →</button>
     </div>
   </div>
 
@@ -216,8 +215,8 @@
     </div>
   </div>
 
-  <!-- PAGE 4 -->
-  <div class="page" id="p4">
+  <!-- PAGE 3 -->
+  <div class="page" id="p3">
     <div class="step-label">
       <h2>Your True North</h2>
       <p>These five values are your compass: who you are, what you believe, and where you're headed.</p>
@@ -226,7 +225,7 @@
       <div class="compass" id="compass"></div>
     </div>
     <div class="btn-row">
-      <button class="btn btn-o" onclick="go(3)">← Revisit My 5</button>
+      <button class="btn btn-o" onclick="go(2)">← Back</button>
       <button class="btn btn-p" onclick="window.print()">Print / Save</button>
     </div>
   </div>
@@ -329,6 +328,561 @@ const V = [
   {n:"Joy",c:"Expression",d:"Finding and creating delight and meaning in everyday experience.",e:"Building rituals and habits that reliably bring you genuine pleasure.",s:"Joy runs deeper than happiness. It's, less dependent on circumstances, and more connected to meaning. Valuing joy means taking seriously your own flourishing and the flourishing of those around you."},
   {n:"Originality",c:"Expression",d:"Bringing something distinctly yours to the world, rather than doing what's expected.",e:"Resisting the pull to just do what everyone else is doing.",s:"Originality is the refusal to be generic. It takes enough self-awareness to know what's authentically yours and enough courage to lead with it. In communities, original people introduce thinking that couldn't have come from anywhere else."},
   {n:"Zeal",c:"Expression",d:"Pursuing what matters to you with deep passion and full investment.",e:"Throwing yourself into work or causes you believe in.",s:"Zeal is the difference between showing up and showing up fully. It signals to others that this matters, that the work is worth caring about. In communities, zealous people create energy that gets things off the ground and keeps them moving."}
+,
+
+  // Added to match handout
+  {
+    n:"Activeness",c:"Expression",
+    d:"Staying engaged, energized, and in motion rather than on the sidelines.",
+    e:"Choosing to stay involved rather than sitting back and watching.",
+    s:"Being active isn't just physical — it's a posture toward life. It means showing up fully, leaning in, and keeping things moving. In groups, active people are the ones who generate energy rather than wait for it to arrive."
+  },
+  {
+    n:"Altruism",c:"Relationships & Community",
+    d:"Caring about others' well-being and giving of yourself without expecting anything back.",
+    e:"Volunteering your time in a way that genuinely costs you something.",
+    s:"Altruism is love in action without a ledger. It asks nothing in return, which is exactly what makes it so powerful. In communities, altruistic people shift the culture from 'what do I get?' to 'what can I give?'"
+  },
+  {
+    n:"Amusement",c:"Expression",
+    d:"Finding and creating moments of lightness, play, and laughter in everyday life.",
+    e:"Bringing a game or silly tradition into a group setting that gets everyone laughing.",
+    s:"Amusement is the value that keeps life from feeling like a grind. It's the recognition that not everything has to be serious, and that play is a legitimate human need. In communities, people who create amusement build cultures people actually want to be part of."
+  },
+  {
+    n:"Appreciation",c:"Relationships & Community",
+    d:"Recognizing and expressing gratitude for the good in your life and in others.",
+    e:"Telling someone specifically what they did that made a difference to you.",
+    s:"Appreciation is the practice of noticing. It slows you down enough to see what's actually there — in people, in moments, in your own growth. In groups, people who express appreciation build cultures where everyone feels seen."
+  },
+  {
+    n:"Approachability",c:"Relationships & Community",
+    d:"Being open and easy to talk to so others feel comfortable coming to you.",
+    e:"Being the person in your group that anyone feels they can come to with anything.",
+    s:"Approachability is a gift you give others — the gift of not having to work up the nerve to talk to you. It requires warmth, presence, and the absence of judgment. In communities, approachable people become the connective tissue that holds groups together."
+  },
+  {
+    n:"Assertiveness",c:"Self & Character",
+    d:"Expressing your needs and beliefs clearly and respectfully.",
+    e:"Speaking up when something's wrong, even when it's easier to stay quiet.",
+    s:"Assertiveness is self-respect made audible. It's the difference between silently going along and honestly engaging — and it requires you to believe your perspective has value. In groups, assertive people create the conditions for real conversations instead of polite ones."
+  },
+  {
+    n:"Attentiveness",c:"Relationships & Community",
+    d:"Being fully present and tuned in to others and what's happening around you.",
+    e:"Listening so carefully that the other person feels truly heard.",
+    s:"Attentiveness is the rarest form of presence. It means choosing to be here rather than thinking about the next thing. In groups, attentive people catch what others miss — the quiet frustration, the unspoken question, the moment someone needs to be seen."
+  },
+  {
+    n:"Attractiveness",c:"Well-being & Faith",
+    d:"Valuing how you present yourself and the confidence that comes from feeling good in your own skin.",
+    e:"Taking care of your appearance in a way that reflects how you want to show up in the world.",
+    s:"Attractiveness as a value is about self-expression and confidence, not vanity. It's the recognition that how you present yourself can reflect your self-respect and shape how you engage with the world. In communities, people who care about their presentation often bring intentionality to everything they do."
+  },
+  {
+    n:"Beauty",c:"Expression",
+    d:"Seeking and creating aesthetic experiences that move and inspire you.",
+    e:"Taking time to notice a sunset, a piece of art, or a well-designed space.",
+    s:"Beauty is the value that reminds us life is worth savoring. It's about cultivating an eye for what's meaningful and moving in the world around you. In communities, people who value beauty often bring creativity and care to everything they touch."
+  },
+  {
+    n:"Benevolence",c:"Relationships & Community",
+    d:"Acting with genuine kindness and goodwill toward others.",
+    e:"Giving freely without being asked and without expecting recognition.",
+    s:"Benevolence is goodness in motion — not passive niceness but an active orientation toward helping others thrive. It's the choice to add warmth rather than heat wherever you go. In groups, benevolent people shift the emotional climate of a room."
+  },
+  {
+    n:"Boldness",c:"Self & Character",
+    d:"Being willing to act with courage even when the outcome is uncertain.",
+    e:"Raising your hand for an opportunity that feels slightly out of reach.",
+    s:"Boldness is confidence that moves — it doesn't wait for perfect conditions. It's the willingness to be first, to be wrong, to be visible when playing it safe is easier. In communities, bold people make things happen that wouldn't happen otherwise."
+  },
+  {
+    n:"Bravery",c:"Self & Character",
+    d:"Facing what's difficult or frightening without letting fear be the deciding factor.",
+    e:"Having a hard conversation rather than avoiding it indefinitely.",
+    s:"Bravery isn't the absence of fear — it's choosing to act even when fear is present. It's a muscle built in small moments before it's needed in large ones. In groups, brave people create psychological safety by modeling what it looks like to take a risk."
+  },
+  {
+    n:"Capability",c:"Self & Character",
+    d:"Believing in your own ability to figure things out and do them well.",
+    e:"Taking on a challenge because you trust yourself to grow into it.",
+    s:"Capability is the confidence that comes from evidence — from showing up repeatedly and proving to yourself that you can handle hard things. It's not arrogance; it's earned trust in yourself. In teams, capable people pull weight and make others feel steadier."
+  },
+  {
+    n:"Care",c:"Relationships & Community",
+    d:"Genuinely attending to others' needs and well-being, not just the task at hand.",
+    e:"Checking whether everyone in the group is doing okay, not just whether the work is done.",
+    s:"Care is what separates transactions from relationships. It means holding both the task and the person at the same time. In communities, caring people build the kind of culture where people actually want to show up."
+  },
+  {
+    n:"Charity",c:"Purpose & Impact",
+    d:"Giving your time, resources, or energy to support those in need.",
+    e:"Organizing a fundraiser for a cause you genuinely believe in.",
+    s:"Charity is generosity with a direction — it moves toward where the need is greatest. It's both a practice and a posture: a way of seeing other people's struggles as worthy of your attention and resources. In communities, it creates a culture of shared responsibility."
+  },
+  {
+    n:"Cheerfulness",c:"Expression",
+    d:"Bringing consistent warmth and positive energy to those around you.",
+    e:"Being the person who lightens the mood without dismissing what's hard.",
+    s:"Cheerfulness isn't toxic positivity — it's the choice to bring warmth even when things are hard. It's contagious in the best way, shifting energy in rooms and relationships. In groups, cheerful people often become the emotional anchor that keeps everyone moving."
+  },
+  {
+    n:"Cleverness",c:"Growth & Learning",
+    d:"Finding smart, creative solutions to problems, often in unexpected ways.",
+    e:"Coming up with a workaround no one else thought of when the usual approach fails.",
+    s:"Cleverness is intelligence applied with creativity. It's the ability to see angles others miss and find paths others don't consider. In groups, clever people often solve the problems that everyone else has decided are unsolvable."
+  },
+  {
+    n:"Consistency",c:"Self & Character",
+    d:"Showing up reliably and predictably, especially in how you treat people.",
+    e:"Being the same person in every context — not different depending on who's watching.",
+    s:"Consistency is trust made visible over time. It's the accumulation of small kept promises that tell others who you are. In groups, consistent people become the stable ground that others organize around."
+  },
+  {
+    n:"Control",c:"Self & Character",
+    d:"Valuing order, predictability, and the ability to shape your environment and outcomes.",
+    e:"Creating systems and structures that give you a sense of stability and direction.",
+    s:"Control as a value isn't about dominating others — it's about having agency over your own life and environment. It's the recognition that structure and predictability help you function at your best. In groups, people who value control often bring organization and careful planning that benefits everyone."
+  },
+  {
+    n:"Cooperation",c:"Relationships & Community",
+    d:"Working genuinely with others toward a shared goal.",
+    e:"Giving up your preferred approach for the one that actually works for the team.",
+    s:"Cooperation is more than getting along — it's the active choice to make others' success part of your success. It requires ego flexibility and a genuine belief that shared outcomes matter more than individual preferences. In groups, cooperative people multiply collective capability."
+  },
+  {
+    n:"Courtesy",c:"Relationships & Community",
+    d:"Treating others with politeness, consideration, and basic respect in everyday interactions.",
+    e:"Holding the door, listening fully, saying thank you — consistently, not just when it's convenient.",
+    s:"Courtesy is the foundation of civil community. It's the set of small behaviors that signal to others that they matter and that you see them. In groups, courteous people set a tone that makes it easier for everyone to work together."
+  },
+  {
+    n:"Credibility",c:"Self & Character",
+    d:"Being someone whose word and expertise can be trusted and relied upon.",
+    e:"Following through on commitments so that people know they can count on what you say.",
+    s:"Credibility is trust earned through track record. It's the reputation that builds when your words and actions consistently align. In communities, credible people are the ones others turn to when the stakes are high."
+  },
+  {
+    n:"Daring",c:"Self & Character",
+    d:"Willingness to take risks others might avoid.",
+    e:"Proposing a bold idea knowing it might not land.",
+    s:"Daring is boldness applied to the specific moment of decision — the moment where you could play it safe but choose not to. It's an act of faith in your own resilience. In groups, daring people model that the downside of trying is survivable."
+  },
+  {
+    n:"Dependability",c:"Relationships & Community",
+    d:"Being someone others can consistently count on.",
+    e:"Following through on what you said you'd do, especially when it's inconvenient.",
+    s:"Dependability is the quiet foundation of trust. It's built in ordinary moments — showing up, delivering, keeping your word. In communities, dependable people are the ones others actually build plans around."
+  },
+  {
+    n:"Determination",c:"Self & Character",
+    d:"Continuing to move toward your goals despite obstacles or setbacks.",
+    e:"Coming back to something after a significant failure or disappointment.",
+    s:"Determination is what you find out you have when things go wrong. It's not stubbornness — it's purposeful persistence. In groups, determined people hold the vision when others start to doubt it."
+  },
+  {
+    n:"Diligence",c:"Purpose & Impact",
+    d:"Working carefully and thoroughly, without cutting corners.",
+    e:"Taking the time to do something properly rather than just fast.",
+    s:"Diligence is the practice of taking your work seriously enough to actually finish it well. It's not perfectionism — it's craftsmanship. In groups, diligent people signal to everyone else that quality matters and that the details are worth caring about."
+  },
+  {
+    n:"Discovery",c:"Growth & Learning",
+    d:"Actively seeking new knowledge, perspectives, and experiences.",
+    e:"Taking a class entirely outside your comfort zone just to see what's there.",
+    s:"Discovery is curiosity with momentum — not just wondering, but actually going to find out. It keeps life expansive and prevents the kind of stagnation that masquerades as stability. In groups, people who love discovery introduce ideas and perspectives the team wouldn't have found on its own."
+  },
+  {
+    n:"Discretion",c:"Self & Character",
+    d:"Knowing when to speak and when to stay quiet, and handling sensitive information with care.",
+    e:"Keeping a confidence when someone trusts you with something personal.",
+    s:"Discretion is judgment made social. It's the ability to read what a situation calls for and act accordingly — especially with information that could hurt someone if handled carelessly. In communities, discreet people become the ones others trust with the things that really matter."
+  },
+  {
+    n:"Dominance",c:"Purpose & Impact",
+    d:"Valuing the ability to lead, influence, and shape outcomes in competitive or high-stakes situations.",
+    e:"Stepping up to take charge when a situation needs someone to lead decisively.",
+    s:"Dominance as a value is about drive and influence, not aggression. It's the desire to be effective, to win, and to shape outcomes rather than be shaped by them. In communities, people who value dominance often push groups to compete and perform at higher levels."
+  },
+  {
+    n:"Drive",c:"Purpose & Impact",
+    d:"Having a relentless internal push toward your goals.",
+    e:"Getting back to work on your goals even when motivation is low.",
+    s:"Drive is the engine that keeps you moving when willpower runs out. It's less about passion and more about a deep-seated need to keep going. In communities, driven people raise the energy and ambition of everyone around them."
+  },
+  {
+    n:"Economy",c:"Well-being & Faith",
+    d:"Valuing resourcefulness, financial responsibility, and making the most of what you have.",
+    e:"Finding a smart, low-cost solution instead of spending more than necessary.",
+    s:"Economy is the value of stewardship — using resources wisely rather than wastefully. It reflects a respect for what you have and a thoughtfulness about how it's used. In communities, economical people often find creative solutions that others overlook."
+  },
+  {
+    n:"Efficiency",c:"Purpose & Impact",
+    d:"Getting things done with the least wasted time, energy, or resources.",
+    e:"Finding a way to accomplish the same goal in half the time without sacrificing quality.",
+    s:"Efficiency is respect for time — yours and everyone else's. It's not about cutting corners but about removing what doesn't add value. In communities, efficient people help groups move faster and accomplish more without burning out."
+  },
+  {
+    n:"Encouragement",c:"Relationships & Community",
+    d:"Actively lifting others up and helping them believe in themselves.",
+    e:"Telling someone their idea is worth pursuing when they're about to give up on it.",
+    s:"Encouragement is one of the most underrated forms of leadership. It costs almost nothing and can change the entire trajectory of someone's day, year, or life. In communities, encouragers create a culture where people feel safe to try — and to try again after they fail."
+  },
+  {
+    n:"Endurance",c:"Self & Character",
+    d:"Persisting through difficulty and continuing to show up over the long haul.",
+    e:"Training through a hard season and not quitting when it gets uncomfortable.",
+    s:"Endurance is the value that carries you past the point where motivation runs out. It's the understanding that the things worth doing are often long and hard before they're satisfying. In groups, people with endurance hold the line when others are tempted to give up."
+  },
+  {
+    n:"Energy",c:"Expression",
+    d:"Bringing vitality, enthusiasm, and a sense of aliveness to what you do.",
+    e:"Walking into a room and lifting the whole atmosphere just by being present.",
+    s:"Energy is contagious — it flows from person to person and can transform a group's entire dynamic. Valuing energy means taking seriously how you show up and what you bring into spaces. In communities, high-energy people often catalyze momentum when things feel stuck."
+  },
+  {
+    n:"Enjoyment",c:"Expression",
+    d:"Finding pleasure and satisfaction in everyday experiences.",
+    e:"Savoring a meal, a conversation, or a moment rather than rushing through it.",
+    s:"Enjoyment is the practice of being present to what's good. It's not hedonism — it's the recognition that life is worth experiencing fully, not just efficiently. In communities, people who genuinely enjoy things model a kind of aliveness that invites others to slow down too."
+  },
+  {
+    n:"Entertainment",c:"Expression",
+    d:"Creating and seeking experiences that delight, engage, and bring people together.",
+    e:"Organizing a fun event that brings your group together and gets everyone talking.",
+    s:"Entertainment is the value of shared experience and joy. It recognizes that humans need play and delight as much as they need purpose. In communities, people who value entertainment create the shared memories that bond groups together."
+  },
+  {
+    n:"Expressiveness",c:"Expression",
+    d:"Sharing your thoughts, feelings, and creativity openly and authentically.",
+    e:"Being willing to speak your mind or share your creative work even when it feels vulnerable.",
+    s:"Expressiveness is how your inner world becomes visible to others. It's the courage to share what you think, feel, and create rather than keeping it safely inside. In communities, expressive people enrich conversations and give others permission to be more open too."
+  },
+  {
+    n:"Extroversion",c:"Expression",
+    d:"Drawing energy from being around people and thriving in social environments.",
+    e:"Being the person who genuinely gets more energized the more people are around.",
+    s:"Extroversion as a value is about recognizing that connection and social engagement are where you come alive. It's not just personality — it's an orientation toward the world that shapes how you engage, contribute, and recharge. In communities, extroverts often drive connection and keep energy high."
+  },
+  {
+    n:"Fairness",c:"Purpose & Impact",
+    d:"Treating people equitably and making decisions without favoritism or bias.",
+    e:"Making sure everyone's voice gets heard before a decision is made.",
+    s:"Fairness is the foundation of trust in any group. It's not just about equal treatment — it's about attentiveness to who might be disadvantaged and why. In communities, people who value fairness ask questions others overlook and advocate for those with less power."
+  },
+  {
+    n:"Fame",c:"Purpose & Impact",
+    d:"Valuing recognition, visibility, and being known for your contributions.",
+    e:"Working toward a goal where your impact will be visible and acknowledged.",
+    s:"Fame as a value isn't shallow — it's often about the desire to matter and to leave a mark that outlasts you. It reflects a need for recognition that is deeply human. In communities, fame-motivated people often work harder and more visibly, driving results that benefit everyone."
+  },
+  {
+    n:"Fearlessness",c:"Self & Character",
+    d:"Refusing to let fear be the thing that determines what you do.",
+    e:"Taking the leap even when you can't see where you'll land.",
+    s:"Fearlessness isn't the absence of fear — it's the refusal to let fear be the final word. It's built by taking small risks that prove, over time, that the fear was survivable. In communities, fearless people expand the group's sense of what's possible."
+  },
+  {
+    n:"Fidelity",c:"Relationships & Community",
+    d:"Staying loyal and true to the people and commitments that matter most to you.",
+    e:"Keeping your word even when circumstances make it inconvenient.",
+    s:"Fidelity is loyalty made active — it's not just feeling committed, it's behaving that way even when it costs something. It's the value that holds relationships and agreements together over time. In communities, people with fidelity are the ones others feel safe trusting with serious responsibilities."
+  },
+  {
+    n:"Fitness",c:"Well-being & Faith",
+    d:"Taking care of your physical body through movement, exercise, and healthy habits.",
+    e:"Prioritizing movement and physical health even on busy or difficult days.",
+    s:"Fitness is the recognition that your body is the vehicle for everything else you value. Taking care of it isn't vanity — it's stewardship. In communities, people who value fitness often model discipline and self-care in ways that inspire those around them."
+  },
+  {
+    n:"Friends",c:"Relationships & Community",
+    d:"Prioritizing the bonds of friendship as a central source of meaning and support.",
+    e:"Making time for your friends even when life gets busy.",
+    s:"Friends are the family we choose, and valuing them means treating those relationships as something worth tending deliberately. It's the recognition that belonging and connection don't just happen — they require investment. In communities, people who value friendship become the connective tissue that makes groups feel like something more."
+  },
+  {
+    n:"Giving",c:"Relationships & Community",
+    d:"Freely sharing what you have — time, resources, attention — with others.",
+    e:"Offering your help, your time, or your resources without waiting to be asked.",
+    s:"Giving is generosity made habitual. It's an orientation toward the world that asks 'what can I offer?' before 'what can I get?' In communities, people who give freely shift the culture toward abundance and mutual support."
+  },
+  {
+    n:"Grace",c:"Self & Character",
+    d:"Moving through difficulty and conflict with composure and generosity.",
+    e:"Responding calmly and kindly when someone is harsh or unfair to you.",
+    s:"Grace is strength restrained on purpose. It's the choice not to respond in kind when provoked, not because you lack the capacity but because you have something better to offer. In communities, graceful people model a higher register of how people can treat each other."
+  },
+  {
+    n:"Guidance",c:"Relationships & Community",
+    d:"Helping others find their way, especially when they're uncertain.",
+    e:"Sharing what you've learned with someone who's just starting out.",
+    s:"Guidance is mentorship in action — the choice to invest in someone else's navigation of life rather than just your own. It's a form of generosity that compounds, because the people you guide often go on to guide others."
+  },
+  {
+    n:"Happiness",c:"Well-being & Faith",
+    d:"Actively choosing and creating conditions for genuine joy and fulfillment.",
+    e:"Making decisions based on what truly fulfills you, not just what looks impressive.",
+    s:"Happiness is not a destination but a practice — a series of small, intentional choices that compound into a life that feels good to live. In communities, genuinely happy people tend to be generous, present, and easy to be around."
+  },
+  {
+    n:"Helpfulness",c:"Relationships & Community",
+    d:"Being genuinely useful and supportive to those around you.",
+    e:"Stepping in when you see someone struggling, without waiting to be asked.",
+    s:"Helpfulness is service made immediate and personal. It's the value that closes the gap between 'someone should do something' and actually doing it. In communities, helpful people are the ones who notice gaps and fill them before anyone has to ask."
+  },
+  {
+    n:"Heroism",c:"Purpose & Impact",
+    d:"Acting with exceptional courage and selflessness when it matters most.",
+    e:"Stepping up in a crisis, even at personal cost, because it was the right thing to do.",
+    s:"Heroism is courage at its fullest expression — the choice to act for others even when the cost is high. It's not about grand gestures as much as the willingness to do what most people won't when the moment calls for it. In communities, heroic acts raise everyone's sense of what's possible."
+  },
+  {
+    n:"Intelligence",c:"Growth & Learning",
+    d:"Valuing sharp thinking, intellectual depth, and genuine understanding.",
+    e:"Digging deeper into a topic than required because you actually want to understand it.",
+    s:"Intelligence is more than raw capacity — it's the commitment to using your mind well. It's asking better questions, thinking past the first answer, and caring about getting things right. In groups, intellectually engaged people raise the quality of thinking for everyone."
+  },
+  {
+    n:"Intimacy",c:"Relationships & Community",
+    d:"Valuing deep, close, and vulnerable connection with others.",
+    e:"Being willing to share the real version of yourself with the people you're closest to.",
+    s:"Intimacy is connection at its deepest level — the kind that requires vulnerability and trust. It's the recognition that being truly known by someone is one of the most meaningful human experiences. In communities, people who value intimacy create the conditions for authentic, lasting bonds."
+  },
+  {
+    n:"Introversion",c:"Well-being & Faith",
+    d:"Recognizing that you recharge through solitude and deep one-on-one connection rather than large groups.",
+    e:"Protecting quiet time to process and restore after social engagement.",
+    s:"Introversion as a value is about knowing how you work and honoring it. It's the recognition that depth over breadth — in relationships, conversations, and experiences — is where you come alive. In communities, introverts often bring the thoughtfulness and careful observation that groups need to make good decisions."
+  },
+  {
+    n:"Knowledge",c:"Growth & Learning",
+    d:"Actively building understanding through learning, reading, and engagement with ideas.",
+    e:"Seeking out the answer to something that bothered you, even after the test was over.",
+    s:"Knowledge is the raw material of wisdom. Valuing it means treating learning as a continuous practice rather than something that ends with a degree. In communities, people who love knowledge bring depth to conversations and help groups make better-informed decisions."
+  },
+  {
+    n:"Liberty",c:"Well-being & Faith",
+    d:"Protecting the freedom of yourself and others to live authentically and make their own choices.",
+    e:"Standing up for others' right to make their own choices, even when you disagree.",
+    s:"Liberty is freedom as a shared value rather than just a personal one. It means caring about autonomy not just for yourself but for others — especially those whose freedom is more constrained than your own."
+  },
+  {
+    n:"Logic",c:"Growth & Learning",
+    d:"Valuing clear, rational thinking and sound reasoning in how you approach problems.",
+    e:"Working through a problem systematically rather than going with your gut.",
+    s:"Logic is the value that keeps thinking honest. It's the commitment to following an argument where it leads rather than where you want it to go. In communities, logical thinkers help groups avoid emotional reasoning and make more sound, defensible decisions."
+  },
+  {
+    n:"Love",c:"Relationships & Community",
+    d:"Acting from a place of deep care and genuine connection.",
+    e:"Making decisions based on what's best for the people you care about, even when it's costly.",
+    s:"Love is the most generative force in human life — it expands what's possible rather than constraining it. Valuing love means treating it as an active practice rather than a feeling that happens to you. In communities, people who act from love create environments where others feel genuinely valued rather than just useful."
+  },
+  {
+    n:"Maturity",c:"Self & Character",
+    d:"Approaching situations with perspective, patience, and emotional groundedness.",
+    e:"Responding to a frustrating situation calmly rather than reactively.",
+    s:"Maturity is wisdom applied to behavior. It's the ability to step back from your immediate reaction and respond to what the situation actually calls for. In communities, mature people provide the steadiness and perspective that help groups navigate difficulty without losing their footing."
+  },
+  {
+    n:"Meticulousness",c:"Self & Character",
+    d:"Paying careful attention to detail and taking pride in precision and thoroughness.",
+    e:"Reviewing your work multiple times to make sure nothing was missed before submitting.",
+    s:"Meticulousness is care made systematic. It's the commitment to getting the details right, not because someone is watching but because the work deserves it. In communities, meticulous people are the quality check that prevents errors from becoming problems."
+  },
+  {
+    n:"Modesty",c:"Self & Character",
+    d:"Not seeking attention or credit beyond what's genuinely deserved.",
+    e:"Letting your work speak for itself rather than announcing it.",
+    s:"Modesty is confidence without a spotlight. It's the ability to do excellent work and release it — without needing recognition to make it feel worth it. In groups, modest people often earn more trust precisely because they're not performing for it."
+  },
+  {
+    n:"Motivation",c:"Purpose & Impact",
+    d:"Finding and sustaining the inner drive to pursue what matters to you.",
+    e:"Reconnecting to your 'why' when energy dips and the path gets hard.",
+    s:"Motivation is the engine, and values are the fuel. Understanding your own motivation — what actually drives you versus what you think should — is a form of self-knowledge that changes everything."
+  },
+  {
+    n:"Obedience",c:"Well-being & Faith",
+    d:"Valuing respect for authority, tradition, and the rules and structures that hold communities together.",
+    e:"Following through on commitments to institutions or leaders you respect, even when it's inconvenient.",
+    s:"Obedience as a value reflects a deep respect for order, tradition, and the structures that make collective life possible. It's the recognition that some things are bigger than individual preference. In communities, people who value obedience provide the reliability and respect for structure that keeps things functioning."
+  },
+  {
+    n:"Optimism",c:"Expression",
+    d:"Believing that things can and will get better — and acting from that belief.",
+    e:"Approaching a major setback with curiosity about what it might teach you.",
+    s:"Optimism is not denial — it's a disciplined choice about where to place your energy and attention. It's the belief that the future is worth building, which is what makes it possible to keep building. In communities, optimistic people hold the vision when others lose sight of it."
+  },
+  {
+    n:"Organization",c:"Purpose & Impact",
+    d:"Creating structure and order to support effective, intentional action.",
+    e:"Planning ahead deliberately so that nothing important slips through the cracks.",
+    s:"Organization is the infrastructure of good intentions. Without it, ambition and creativity often dissipate before they can create anything lasting. In groups, organized people provide the scaffolding that lets everyone else's contributions add up to something."
+  },
+  {
+    n:"Perfection",c:"Purpose & Impact",
+    d:"Holding yourself and your work to the highest possible standard.",
+    e:"Reworking something until it truly reflects your best, not just what's good enough.",
+    s:"Perfection as a value reflects a deep commitment to excellence and a refusal to settle. At its best, it drives extraordinary work. In communities, people who value perfection raise the standard for everyone and push groups to achieve more than they thought possible."
+  },
+  {
+    n:"Persistence",c:"Self & Character",
+    d:"Continuing to try despite repeated setbacks, resistance, or slow progress.",
+    e:"Coming back to a goal again and again even when progress feels invisible.",
+    s:"Persistence is determination stretched over time. It's the refusal to be permanently stopped by any single obstacle. In communities, persistent people model what it looks like to keep going — and that example matters more than any pep talk."
+  },
+  {
+    n:"Philanthropy",c:"Purpose & Impact",
+    d:"Actively contributing to the well-being of others and society through giving.",
+    e:"Donating your time or resources to causes beyond your immediate circle.",
+    s:"Philanthropy is generosity at scale — the decision to let your impact reach beyond your own life and community. It's rooted in the belief that you have something worth giving and that others' well-being matters as much as your own."
+  },
+  {
+    n:"Privacy",c:"Well-being & Faith",
+    d:"Valuing the ability to keep parts of your life and inner world to yourself.",
+    e:"Setting healthy limits around what you share and with whom.",
+    s:"Privacy is the value of having a self that isn't fully public. It's about having space to think, feel, and process without external judgment. In communities, people who value privacy often model healthy limits that protect their well-being and model that for others."
+  },
+  {
+    n:"Professionalism",c:"Purpose & Impact",
+    d:"Bringing reliability, competence, and respect to your work and relationships.",
+    e:"Doing excellent work even when no one is watching or evaluating you.",
+    s:"Professionalism is character expressed through your work. It's not about formality — it's about taking seriously the commitments you've made and the people counting on you. In communities, professional people raise the standard and give others confidence that the job will actually get done."
+  },
+  {
+    n:"Punctuality",c:"Self & Character",
+    d:"Respecting others' time by showing up and delivering when you said you would.",
+    e:"Being on time consistently, not because someone is tracking it but because you value others' time.",
+    s:"Punctuality is a form of respect. It communicates that the other person's time matters as much as your own. In communities, punctual people reduce friction, build trust, and signal that they take their commitments seriously."
+  },
+  {
+    n:"Recognition",c:"Purpose & Impact",
+    d:"Valuing acknowledgment for your contributions and wanting your efforts to be seen.",
+    e:"Working hard on something and wanting that effort to be noticed and appreciated.",
+    s:"Recognition as a value reflects a very human need to matter and to be seen. It's not vanity — it's the desire for your effort to register in the world. In communities, people who value recognition often work harder and more visibly, driving results while also helping others feel acknowledged."
+  },
+  {
+    n:"Recreation",c:"Well-being & Faith",
+    d:"Valuing rest, play, and activities that restore and refresh you.",
+    e:"Making time for hobbies and activities that genuinely bring you joy and restore your energy.",
+    s:"Recreation is the value that protects you from burning out. It's the recognition that rest and play aren't luxuries — they're what make sustained effort possible. In communities, people who value recreation often model the kind of balance that keeps groups healthy over the long haul."
+  },
+  {
+    n:"Religiousness",c:"Well-being & Faith",
+    d:"Living in accordance with a specific faith tradition and its practices, teachings, and community.",
+    e:"Regularly practicing your faith and allowing it to shape how you live and make decisions.",
+    s:"Religiousness is faith lived out in community and practice. It's the value of being embedded in a tradition that provides meaning, moral guidance, and belonging. In communities, religious people often bring a depth of commitment and a sense of larger purpose that grounds and steadies those around them."
+  },
+  {
+    n:"Sensitivity",c:"Relationships & Community",
+    d:"Being attuned to the emotional reality of yourself and others.",
+    e:"Noticing when your words have landed differently than you intended.",
+    s:"Sensitivity is emotional intelligence in action. It's the capacity to feel the room, track others' experience, and adjust accordingly. In communities, sensitive people do the invisible relational work that keeps everyone feeling safe and valued."
+  },
+  {
+    n:"Silence",c:"Well-being & Faith",
+    d:"Valuing quiet, stillness, and the space to think and be without noise or distraction.",
+    e:"Protecting time for quiet and solitude in a world that rarely stops talking.",
+    s:"Silence is the value that creates room for depth. In a noisy world, choosing quiet is an act of intention. It's where reflection happens, where creativity emerges, and where you can actually hear yourself think. In communities, people who value silence often model the kind of thoughtfulness that comes from not rushing to fill every gap."
+  },
+  {
+    n:"Silliness",c:"Expression",
+    d:"Embracing playfulness, absurdity, and the joy of not taking yourself too seriously.",
+    e:"Being willing to be goofy, weird, or playful even when you could play it cool.",
+    s:"Silliness is the value of not letting adulthood squeeze all the play out of you. It's the recognition that absurdity and laughter are legitimate — and necessary — parts of a full life. In communities, silly people create the moments of levity that make hard work feel human."
+  },
+  {
+    n:"Sincerity",c:"Self & Character",
+    d:"Being genuine in what you say and do — meaning what you mean.",
+    e:"Only saying things you actually believe, even when a different answer would be easier.",
+    s:"Sincerity is authenticity's quieter sibling. It's the practice of meaning what you say and saying what you mean — without performance or agenda. In communities, sincere people are the ones others trust enough to have real conversations with."
+  },
+  {
+    n:"Skillfulness",c:"Growth & Learning",
+    d:"Developing and applying practical abilities with care and competence.",
+    e:"Practicing something repeatedly until you can do it well, not just adequately.",
+    s:"Skillfulness is mastery in motion — the ongoing development of practical ability. It's the commitment to being genuinely good at what you do, not just passable. In communities, skillful people raise the quality of collective work and inspire others to take their own development seriously."
+  },
+  {
+    n:"Solidarity",c:"Relationships & Community",
+    d:"Standing with others, especially in hard moments — across difference.",
+    e:"Showing up for a community that isn't your own because it's the right thing.",
+    s:"Solidarity is connection without condition. It says: your struggle matters to me even though it's not mine. It's one of the most powerful forces for building genuine community across difference."
+  },
+  {
+    n:"Solitude",c:"Well-being & Faith",
+    d:"Valuing time alone as essential for restoration, thought, and self-knowledge.",
+    e:"Carving out time by yourself that you protect because you know how much you need it.",
+    s:"Solitude is not loneliness — it's chosen aloneness. It's the space where you reconnect with yourself, process what's happened, and restore what's been depleted. In communities, people who value solitude often bring a depth of self-knowledge and thoughtfulness that comes from time spent genuinely alone."
+  },
+  {
+    n:"Thoughtfulness",c:"Relationships & Community",
+    d:"Considering others in your actions and words before you act.",
+    e:"Remembering what matters to someone and letting that shape how you engage with them.",
+    s:"Thoughtfulness is the practice of putting others in the picture before you act. It's the difference between reactive and intentional. In communities, thoughtful people make others feel consistently seen and cared for."
+  },
+  {
+    n:"Understanding",c:"Relationships & Community",
+    d:"Genuinely seeking to grasp others' experiences and perspectives before responding.",
+    e:"Asking questions before drawing conclusions about why someone did what they did.",
+    s:"Understanding is the slow work of really knowing — not assuming, not projecting, but actually trying to enter another person's experience. In communities, people who pursue understanding create conditions for genuine empathy and collaboration."
+  },
+  {
+    n:"Uniqueness",c:"Expression",
+    d:"Embracing what makes you different as something to offer rather than hide.",
+    e:"Leading with your authentic perspective rather than shrinking to fit in.",
+    s:"Uniqueness is the courage to bring what only you can bring. It takes enough self-knowledge to know what that is and enough confidence to lead with it anyway. In communities, unique people expand the collective palette — they add colors that weren't there before."
+  },
+  {
+    n:"Usefulness",c:"Purpose & Impact",
+    d:"Wanting to contribute practically and make a tangible difference in what you do.",
+    e:"Focusing on how your efforts actually help others rather than how they look.",
+    s:"Usefulness is impact kept honest. It's the desire to actually help rather than just seem helpful. In communities, useful people are the ones who get things done, solve real problems, and make everyone else's work easier."
+  },
+  {
+    n:"Varity",c:"Expression",
+    d:"Seeking variety, new experiences, and avoiding sameness in your daily life.",
+    e:"Deliberately changing your routines, environments, or activities to keep things fresh.",
+    s:"Varity is the value that keeps life interesting. It's the preference for novelty and change over comfort and routine. In communities, people who value variety introduce new ideas and energy that prevents stagnation."
+  },
+  {
+    n:"Victory",c:"Purpose & Impact",
+    d:"Valuing winning, achieving goals, and coming out on top in competitive situations.",
+    e:"Giving everything you have to a competition because winning genuinely matters to you.",
+    s:"Victory as a value reflects a competitive spirit and a desire to excel. At its best it drives exceptional performance and pushes groups to achieve more. In communities, victory-motivated people raise the competitive energy and help teams pursue ambitious goals."
+  },
+  {
+    n:"Virtue",c:"Self & Character",
+    d:"Living according to strong moral principles and doing what's right consistently.",
+    e:"Choosing the ethical path even when the less virtuous one would be easier or more rewarding.",
+    s:"Virtue is character in its most complete form — the consistent alignment of actions with moral principles. It's not just knowing right from wrong but habitually choosing right. In communities, virtuous people set a moral standard that elevates the whole group."
+  },
+  {
+    n:"Vivacity",c:"Expression",
+    d:"Bringing a lively, spirited, and vibrant energy to everything you do.",
+    e:"Being the person whose presence makes everything feel more alive and exciting.",
+    s:"Vivacity is enthusiasm and energy at their most expressive. It's the value of being genuinely, visibly alive — of letting your enthusiasm be contagious. In communities, vivacious people create the kind of electric atmosphere where people feel more awake and engaged."
+  },
+  {
+    n:"Wealth",c:"Well-being & Faith",
+    d:"Valuing financial security, abundance, and the freedom and options that resources provide.",
+    e:"Working hard toward financial goals because you understand what security and abundance make possible.",
+    s:"Wealth as a value is honest about what money makes possible — freedom, security, opportunity, and the ability to help others. It's not greed; it's the recognition that resources matter and that building them is a legitimate pursuit. In communities, wealth-motivated people often drive economic growth and create opportunities for those around them."
+  },
+  {
+    n:"Winning",c:"Purpose & Impact",
+    d:"Driven to succeed and come out ahead in the things you pursue.",
+    e:"Preparing more than anyone else because you genuinely want to win.",
+    s:"Winning as a value is about the drive to succeed and the satisfaction that comes from outperforming expectations. It's not about others losing — it's about your own excellence. In communities, people who value winning raise performance standards and push groups to compete at higher levels."
+  },
+  {
+    n:"Wonder",c:"Well-being & Faith",
+    d:"Staying open to awe, mystery, and the remarkable nature of ordinary things.",
+    e:"Never quite losing the feeling that the world is stranger and more interesting than it appears.",
+    s:"Wonder is curiosity's emotional twin. It keeps you from becoming jaded — from losing the capacity to be surprised and delighted by what's around you. In communities, people who hold wonder tend to notice what others have stopped seeing, which is how new ideas get born."
+  }
 ];
 
 let sel1=new Set(), sel2=new Set(), sel3=new Set(), openChips=new Set();
@@ -428,7 +982,7 @@ function renderGrid(gridId, values, selSet, maxN, updateFn, searchQ) {
 
 function setAlert(id, count, max) {
   const el = document.getElementById(id);
-  if (count === max) el.innerHTML = `<div class="alert alert-ok">✓ ${max} selected. Continue when ready.</div>`;
+  if (count === max) el.innerHTML = `<div class="alert alert-ok">✓ ${max} selected. Continue when ready!</div>`;
   else if (count > max) el.innerHTML = `<div class="alert alert-w">Please deselect ${count - max} to continue.</div>`;
   else el.innerHTML = '';
 }
@@ -461,28 +1015,22 @@ function addCustomValue() {
 
 function update1() {
   document.getElementById('c1').textContent = sel1.size;
-  setAlert('a1', sel1.size, 20);
-  document.getElementById('b1').disabled = sel1.size !== 20;
+  setAlert('a1', sel1.size, 10);
+  document.getElementById('b1').disabled = sel1.size !== 10;
   const q = (document.getElementById('search1').value || '').trim().toLowerCase();
-  renderGrid('g1', V, sel1, 20, update1, q);
+  renderGrid('g1', V, sel1, 10, update1, q);
 }
 
 function update2() {
   document.getElementById('c2').textContent = sel2.size;
-  setAlert('a2', sel2.size, 10);
-  document.getElementById('b2').disabled = sel2.size !== 10;
-  renderGrid('g2', V.filter(v => sel1.has(v.n)), sel2, 10, update2);
+  setAlert('a2', sel2.size, 5);
+  document.getElementById('b2').disabled = sel2.size !== 5;
+  renderGrid('g2', V.filter(v => sel1.has(v.n)), sel2, 5, update2);
 }
 
-function update3() {
-  document.getElementById('c3').textContent = sel3.size;
-  setAlert('a3', sel3.size, 5);
-  document.getElementById('b3').disabled = sel3.size !== 5;
-  renderGrid('g3', V.filter(v => sel2.has(v.n)), sel3, 5, update3);
-}
 
 function buildCompass() {
-  const finals = V.filter(v => sel3.has(v.n));
+  const finals = V.filter(v => sel2.has(v.n));
   document.getElementById('compass').innerHTML = `
     <div class="c-star">✦</div>
     <div class="c-eye">Bowling Green State University &bull; Thompson Scholars</div>
@@ -504,7 +1052,7 @@ function buildCompass() {
 function setPage(n) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('p'+n).classList.add('active');
-  ['sp1','sp2','sp3','sp4'].forEach((id,i) => {
+  ['sp1','sp2','sp3'].forEach((id,i) => {
     const el = document.getElementById(id);
     el.className = 'sp';
     if (i+1 < n) el.classList.add('done');
@@ -514,13 +1062,12 @@ function setPage(n) {
 }
 
 function go(n) {
-  if (n === 2) { sel2 = new Set(sel1); }
-  if (n === 3) { sel3 = new Set(sel2); }
-  if (n === 4) buildCompass();
+  if (n === 2) { sel2 = new Set(sel1); openCats.clear(); }
+  if (n === 3) { buildCompass(); }
+
   setPage(n);
   if (n === 1) update1();
   if (n === 2) update2();
-  if (n === 3) update3();
 }
 
 update1();
