@@ -297,32 +297,20 @@
   <!-- PAGE 3 -->
   <div class="page" id="p3">
     <div class="step-label">
-      <h2>Step 3: Your True North</h2>
-      <p>Choose exactly 5. The ones that, when you honor them, you feel most like yourself.</p>
-    </div>
-    <div class="pad">
-      <div class="badge">Selected: <em id="c3">0</em> / 5</div>
-      <div id="a3"></div>
-      <div id="g3"></div>
-    </div>
-    <div class="btn-row">
-      <button class="btn btn-o" onclick="go(2)">← Back</button>
-      <button class="btn btn-p" id="b3" onclick="go(4)" disabled>See My Compass →</button>
-    </div>
-  </div>
-
-  <!-- PAGE 3 -->
-  <div class="page" id="p3">
-    <div class="step-label">
       <h2>Your True North</h2>
       <p>These five values are your compass: who you are, what you believe, and where you're headed.</p>
     </div>
-    <div class="compass-wrap">
-      <div class="compass" id="compass"></div>
+    <div class="results-wrap">
+      <div id="share-card-wrap">
+        <div class="share-card" id="share-card"></div>
+      </div>
+      <button class="dl-btn" id="dl-btn" onclick="downloadCard()">
+        <span>⬇</span> Save as Image
+      </button>
+      <div id="val-details"></div>
     </div>
     <div class="btn-row">
       <button class="btn btn-o" onclick="go(2)">← Back</button>
-      <button class="btn btn-p" onclick="window.print()">Print / Save</button>
     </div>
   </div>
 </div>
