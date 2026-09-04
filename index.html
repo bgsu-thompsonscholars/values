@@ -108,20 +108,115 @@
   .btn-o { background: transparent; border: 1.5px solid var(--br); color: var(--br); padding: 11px 18px; font-size: 11px; }
   .btn-o:active { background: var(--ta); }
 
-  /* COMPASS */
-  .compass-wrap { padding: 0 1.2rem 1.2rem; }
-  .compass { background: linear-gradient(135deg, var(--br) 60%, #3a1e10 100%); border-radius: 16px; padding: 1.5rem 1.4rem; color: #fff; border-top: 4px solid var(--or); }
-  .c-star { font-size: 28px; margin-bottom: 4px; }
-  .c-eye { font-size: 9px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--sf); margin-bottom: 4px; }
-  .c-title { font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: #fff; margin-bottom: 1.2rem; }
-  .c-vals { display: flex; flex-direction: column; }
-  .c-row { display: flex; align-items: flex-start; gap: 12px; padding: 1rem 0; border-top: 1px solid rgba(255,255,255,.1); }
-  .c-row:first-child { border-top: none; padding-top: 0; }
-  .c-num { font-size: 11px; font-weight: 800; color: var(--or); min-width: 22px; padding-top: 2px; flex-shrink: 0; }
-  .c-content { flex: 1; }
-  .c-vname { font-size: 13.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: #fff; margin-bottom: 5px; }
-  .c-summary { font-size: 12px; color: rgba(255,255,255,.72); line-height: 1.65; margin-bottom: 4px; }
-  .c-def { font-size: 10.5px; color: rgba(255,255,255,.4); line-height: 1.45; font-style: italic; }
+  /* RESULTS PAGE */
+  .results-wrap { padding: 0 1.2rem 1.2rem; }
+
+  /* Shareable card */
+  .share-card {
+    background: linear-gradient(150deg, var(--br) 0%, #3a1e10 100%);
+    border-radius: 20px;
+    padding: 1.6rem 1.4rem 1.4rem;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    border-top: 5px solid var(--or);
+    margin-bottom: 1rem;
+  }
+  .share-card::before {
+    content: '✦';
+    position: absolute;
+    right: -10px; bottom: -20px;
+    font-size: 130px;
+    color: var(--or);
+    opacity: .08;
+    line-height: 1;
+    pointer-events: none;
+  }
+  .sc-eyebrow { font-size: 8.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--sf); margin-bottom: 3px; }
+  .sc-title { font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: #fff; line-height: 1.1; margin-bottom: 1.2rem; }
+  .sc-compass {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+  }
+  .compass-svg { width: 90px; height: 90px; flex-shrink: 0; }
+  .sc-tagline {
+    font-size: 12px;
+    color: rgba(255,255,255,.6);
+    margin-left: 1rem;
+    line-height: 1.6;
+    flex: 1;
+  }
+  .sc-tagline strong { color: #fff; font-weight: 700; }
+  .sc-values { display: flex; flex-direction: column; gap: 10px; }
+  .sc-val {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,.07);
+    border-radius: 10px;
+    padding: 10px 12px;
+    border-left: 3px solid var(--or);
+  }
+  .sc-num { font-size: 10px; font-weight: 800; color: var(--or); min-width: 18px; }
+  .sc-vname { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #fff; }
+  .sc-footer {
+    margin-top: 1.1rem;
+    font-size: 9px;
+    color: rgba(255,255,255,.3);
+    text-align: center;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+
+  /* Value detail cards */
+  .val-detail-card {
+    background: white;
+    border-radius: 14px;
+    border: 1.5px solid #e4ddd5;
+    padding: 1.1rem 1.2rem;
+    margin-bottom: 10px;
+  }
+  .vd-num { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--sf); margin-bottom: 4px; }
+  .vd-name { font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--or); margin-bottom: 6px; }
+  .vd-def { font-size: 12.5px; color: var(--br); line-height: 1.6; margin-bottom: 8px; font-weight: 500; }
+  .vd-summary { font-size: 12px; color: #555; line-height: 1.65; margin-bottom: 8px; }
+  .vd-alive {
+    background: linear-gradient(135deg, #fff7f0, #f0f8f7);
+    border-left: 3px solid var(--or);
+    border-radius: 0 8px 8px 0;
+    padding: 8px 12px;
+    font-size: 11.5px;
+    color: var(--br);
+    font-style: italic;
+    line-height: 1.55;
+  }
+  .vd-alive strong { color: var(--or); font-style: normal; font-weight: 700; }
+
+  /* Download button */
+  .dl-btn {
+    width: 100%;
+    font-family: var(--f);
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    padding: 13px;
+    background: var(--te);
+    color: white;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .dl-btn:active { background: #155258; transform: scale(.98); }
+  .dl-btn.loading { background: #aaa; cursor: not-allowed; }
 
   /* CUSTOM VALUE */
   .add-value-wrap { padding: 0 1.2rem .5rem; }
@@ -140,6 +235,7 @@
     body { background: white; }
   }
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
 <div id="app">
@@ -916,6 +1012,14 @@ function makeChip(v, selSet, maxN, updateFn) {
 
   div.querySelector('.chip-top').addEventListener('click', e => {
     if (e.target.closest('.chip-arrow')) return;
+    // If clicking the checkbox directly, always toggle selection (open if needed too)
+    if (e.target.closest('.chip-cb')) {
+      if (!openChips.has(v.n)) openChips.add(v.n);
+      selSet.has(v.n) ? selSet.delete(v.n) : (selSet.size < maxN && selSet.add(v.n));
+      updateFn();
+      return;
+    }
+    // Clicking name area: open if closed, else toggle selection
     if (!openChips.has(v.n)) { openChips.add(v.n); updateFn(); return; }
     selSet.has(v.n) ? selSet.delete(v.n) : (selSet.size < maxN && selSet.add(v.n));
     updateFn();
@@ -1031,22 +1135,70 @@ function update2() {
 
 function buildCompass() {
   const finals = V.filter(v => sel2.has(v.n));
-  document.getElementById('compass').innerHTML = `
-    <div class="c-star">✦</div>
-    <div class="c-eye">Bowling Green State University &bull; Thompson Scholars</div>
-    <div class="c-title">My True North</div>
-    <div class="c-vals">
+
+  // ── Shareable card ──────────────────────────────────────────────────
+  document.getElementById('share-card').innerHTML = `
+    <div class="sc-eyebrow">Thompson Scholars &bull; BGSU</div>
+    <div class="sc-title">My True North</div>
+    <div class="sc-compass">
+      <svg class="compass-svg" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="45" cy="45" r="42" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="2"/>
+        <circle cx="45" cy="45" r="32" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+        <text x="45" y="14" text-anchor="middle" font-size="9" fill="rgba(255,255,255,.5)" font-family="Poppins,sans-serif" font-weight="700">N</text>
+        <text x="45" y="82" text-anchor="middle" font-size="9" fill="rgba(255,255,255,.3)" font-family="Poppins,sans-serif" font-weight="700">S</text>
+        <text x="8" y="49" text-anchor="middle" font-size="9" fill="rgba(255,255,255,.3)" font-family="Poppins,sans-serif" font-weight="700">W</text>
+        <text x="82" y="49" text-anchor="middle" font-size="9" fill="rgba(255,255,255,.3)" font-family="Poppins,sans-serif" font-weight="700">E</text>
+        <polygon points="45,18 50,45 45,40 40,45" fill="#fd5000"/>
+        <polygon points="45,72 50,45 45,50 40,45" fill="rgba(255,255,255,.4)"/>
+        <circle cx="45" cy="45" r="5" fill="white" opacity=".9"/>
+      </svg>
+      <div class="sc-tagline">The values that guide <strong>who I am</strong>, <strong>what I believe</strong>, and <strong>where I'm headed</strong>.</div>
+    </div>
+    <div class="sc-values">
       ${finals.map((v,i) => `
-        <div class="c-row">
-          <div class="c-num">0${i+1}</div>
-          <div class="c-content">
-            <div class="c-vname">${v.n}</div>
-            <div class="c-summary">${v.s}</div>
-            <div class="c-def">${v.d}</div>
-          </div>
+        <div class="sc-val">
+          <div class="sc-num">0${i+1}</div>
+          <div class="sc-vname">${v.n}</div>
         </div>
       `).join('')}
-    </div>`;
+    </div>
+    <div class="sc-footer">bgsu-thompsonscholars.github.io/values</div>
+  `;
+
+  // ── Value detail cards ──────────────────────────────────────────────
+  const detailWrap = document.getElementById('val-details');
+  detailWrap.innerHTML = finals.map((v, i) => `
+    <div class="val-detail-card">
+      <div class="vd-num">Value ${i+1} of 5</div>
+      <div class="vd-name">${v.n}</div>
+      <div class="vd-def">${v.d}</div>
+      <div class="vd-summary">${v.s}</div>
+      <div class="vd-alive"><strong>If ${v.n} were fully alive in my life,</strong> I would be doing more of...</div>
+    </div>
+  `).join('');
+}
+
+async function downloadCard() {
+  const btn = document.getElementById('dl-btn');
+  btn.classList.add('loading');
+  btn.innerHTML = '<span>⏳</span> Generating image...';
+  try {
+    const card = document.getElementById('share-card');
+    const canvas = await html2canvas(card, {
+      scale: 3,
+      useCORS: true,
+      backgroundColor: null,
+      logging: false
+    });
+    const link = document.createElement('a');
+    link.download = 'my-true-north.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  } catch(e) {
+    alert('Download failed — try taking a screenshot instead!');
+  }
+  btn.classList.remove('loading');
+  btn.innerHTML = '<span>⬇</span> Save as Image';
 }
 
 function setPage(n) {
@@ -1063,11 +1215,11 @@ function setPage(n) {
 
 function go(n) {
   if (n === 2) { sel2 = new Set(sel1); openCats.clear(); }
-  if (n === 3) { buildCompass(); }
 
   setPage(n);
   if (n === 1) update1();
   if (n === 2) update2();
+  if (n === 3) { buildCompass(); }
 }
 
 update1();
