@@ -111,63 +111,88 @@
   /* RESULTS PAGE */
   .results-wrap { padding: 0 1.2rem 1.2rem; }
 
-  /* Shareable card */
+  /* Shareable card — white, Instagram-ready */
   .share-card {
-    background: linear-gradient(150deg, var(--br) 0%, #3a1e10 100%);
+    background: #ffffff;
     border-radius: 20px;
-    padding: 1.6rem 1.4rem 1.4rem;
-    color: #fff;
+    padding: 1.8rem 1.4rem 1.4rem;
     position: relative;
     overflow: hidden;
-    border-top: 5px solid var(--or);
+    border: 2px solid #e8e0d8;
     margin-bottom: 1rem;
+    box-shadow: 0 4px 24px rgba(79,44,29,.08);
   }
   .share-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--or) 0%, var(--te) 100%);
+  }
+  .share-card::after {
     content: '✦';
     position: absolute;
-    right: -10px; bottom: -20px;
-    font-size: 130px;
+    right: 14px; top: 18px;
+    font-size: 22px;
     color: var(--or);
-    opacity: .08;
+    opacity: .25;
     line-height: 1;
     pointer-events: none;
   }
-  .sc-eyebrow { font-size: 8.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--sf); margin-bottom: 3px; }
-  .sc-title { font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: #fff; line-height: 1.1; margin-bottom: 1.2rem; }
-  .sc-compass {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .sc-eyebrow {
+    font-size: 8.5px; font-weight: 700; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--te); margin-bottom: 2px;
+  }
+  .sc-title {
+    font-size: 26px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: .04em; color: var(--br); line-height: 1.05; margin-bottom: 4px;
+  }
+  .sc-quote {
+    font-size: 11px; color: var(--or); font-weight: 600;
+    font-style: italic; margin-bottom: 1.2rem; letter-spacing: .01em;
+  }
+  .sc-divider {
+    height: 2px;
+    background: linear-gradient(90deg, var(--or), var(--sf));
+    border-radius: 99px;
     margin-bottom: 1.2rem;
+    opacity: .4;
   }
-  .compass-svg { width: 90px; height: 90px; flex-shrink: 0; }
-  .sc-tagline {
-    font-size: 12px;
-    color: rgba(255,255,255,.6);
-    margin-left: 1rem;
-    line-height: 1.6;
-    flex: 1;
-  }
-  .sc-tagline strong { color: #fff; font-weight: 700; }
-  .sc-values { display: flex; flex-direction: column; gap: 10px; }
+  .sc-values { display: flex; flex-direction: column; gap: 12px; }
   .sc-val {
     display: flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(255,255,255,.07);
-    border-radius: 10px;
-    padding: 10px 12px;
-    border-left: 3px solid var(--or);
+    align-items: flex-start;
+    gap: 11px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0ebe4;
   }
-  .sc-num { font-size: 10px; font-weight: 800; color: var(--or); min-width: 18px; }
-  .sc-vname { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #fff; }
+  .sc-val:last-child { border-bottom: none; padding-bottom: 0; }
+  .sc-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--or); flex-shrink: 0; margin-top: 5px;
+  }
+  .sc-val-inner { flex: 1; }
+  .sc-vname {
+    font-size: 13px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: .07em; color: var(--br); margin-bottom: 3px;
+  }
+  .sc-vdef {
+    font-size: 11px; color: #666; line-height: 1.5; font-weight: 400;
+  }
   .sc-footer {
     margin-top: 1.1rem;
-    font-size: 9px;
-    color: rgba(255,255,255,.3);
-    text-align: center;
-    letter-spacing: .06em;
-    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .sc-footer-url {
+    font-size: 8.5px; color: #bbb; letter-spacing: .07em;
+    text-transform: uppercase; font-weight: 600;
+  }
+  .sc-footer-badge {
+    font-size: 8px; font-weight: 700; letter-spacing: .1em;
+    text-transform: uppercase; color: white; background: var(--te);
+    border-radius: 99px; padding: 3px 9px;
   }
 
   /* Value detail cards */
@@ -1128,36 +1153,29 @@ function buildCompass() {
   document.getElementById('share-card').innerHTML = `
     <div class="sc-eyebrow">Thompson Scholars &bull; BGSU</div>
     <div class="sc-title">My True North</div>
-    <div class="sc-compass">
-      <svg class="compass-svg" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="45" cy="45" r="42" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="2"/>
-        <circle cx="45" cy="45" r="32" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
-        <text x="45" y="14" text-anchor="middle" font-size="9" fill="rgba(255,255,255,.5)" font-family="Poppins,sans-serif" font-weight="700">N</text>
-        <text x="45" y="82" text-anchor="middle" font-size="9" fill="rgba(255,255,255,.3)" font-family="Poppins,sans-serif" font-weight="700">S</text>
-        <text x="8" y="49" text-anchor="middle" font-size="9" fill="rgba(255,255,255,.3)" font-family="Poppins,sans-serif" font-weight="700">W</text>
-        <text x="82" y="49" text-anchor="middle" font-size="9" fill="rgba(255,255,255,.3)" font-family="Poppins,sans-serif" font-weight="700">E</text>
-        <polygon points="45,18 50,45 45,40 40,45" fill="#fd5000"/>
-        <polygon points="45,72 50,45 45,50 40,45" fill="rgba(255,255,255,.4)"/>
-        <circle cx="45" cy="45" r="5" fill="white" opacity=".9"/>
-      </svg>
-      <div class="sc-tagline">The values that guide <strong>who I am</strong>, <strong>what I believe</strong>, and <strong>where I'm headed</strong>.</div>
-    </div>
+    <div class="sc-quote">"Values are directions, not destinations."</div>
+    <div class="sc-divider"></div>
     <div class="sc-values">
-      ${finals.map((v,i) => `
+      ${finals.map(v => `
         <div class="sc-val">
-          <div class="sc-num">0${i+1}</div>
-          <div class="sc-vname">${v.n}</div>
+          <div class="sc-dot"></div>
+          <div class="sc-val-inner">
+            <div class="sc-vname">${v.n}</div>
+            <div class="sc-vdef">${v.d}</div>
+          </div>
         </div>
       `).join('')}
     </div>
-    <div class="sc-footer">bgsu-thompsonscholars.github.io/values</div>
+    <div class="sc-footer">
+      <span class="sc-footer-url">bgsu-thompsonscholars.github.io/values</span>
+      <span class="sc-footer-badge">Thompson Scholars</span>
+    </div>
   `;
 
   // ── Value detail cards ──────────────────────────────────────────────
   const detailWrap = document.getElementById('val-details');
-  detailWrap.innerHTML = finals.map((v, i) => `
+  detailWrap.innerHTML = finals.map(v => `
     <div class="val-detail-card">
-      <div class="vd-num">Value ${i+1} of 5</div>
       <div class="vd-name">${v.n}</div>
       <div class="vd-def">${v.d}</div>
       <div class="vd-summary">${v.s}</div>
